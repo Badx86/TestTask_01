@@ -1,0 +1,16 @@
+
+-----
+Test: test_weather.py::test_weather[20852-3.4] (call)
+Time: 2023-11-30 00:39:02.367060
+Request method: GET
+Request URL: https://api.openweathermap.org/data/2.5/weather
+Request data: {'zip': '20852,us', 'appid': '89895c0c7d2f36b7d080e3200d7bd723', 'units': 'metric'}
+Request headers: None
+Request cookies: None
+
+Response code: 200
+Response text: {"coord":{"lon":-77.1204,"lat":39.0496},"weather":[{"id":803,"main":"Clouds","description":"broken clouds","icon":"04d"}],"base":"stations","main":{"temp":3.41,"feels_like":0.16,"temp_min":1.8,"temp_max":4.97,"pressure":1019,"humidity":35},"visibility":10000,"wind":{"speed":3.6,"deg":220,"gust":7.72},"clouds":{"all":75},"dt":1701290340,"sys":{"type":2,"id":2002514,"country":"US","sunrise":1701259588,"sunset":1701294442},"timezone":-18000,"id":0,"name":"Rockville","cod":200}
+Response headers: {'Server': 'openresty', 'Date': 'Wed, 29 Nov 2023 20:39:00 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '478', 'Connection': 'keep-alive', 'X-Cache-Key': '/data/2.5/weather?units=metric&zip=20852%2cus', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Credentials': 'true', 'Access-Control-Allow-Methods': 'GET, POST'}
+Response cookies: {}
+
+-----
