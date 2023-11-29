@@ -1,30 +1,41 @@
 import json
-
+from logger import Logger
 import requests
 from decouple import config
 
 
 class WeatherApi:
+    """
+    Класс для взаимодействия с API погоды OpenWeatherMap
+    """
     def __init__(self):
-        # Основной URL для API погоды и ключ API, полученный из переменных окружения
+        """
+        Инициализация API с использованием ключа API из переменных окружения
+        """
         self.base_url = "https://api.openweathermap.org/data/2.5/weather"
         self.api_key = config("API_KEY")
 
     def get_weather_by_zipcode(self, zip_code):
-        # Параметры запроса, включая почтовый индекс и ключ API.
-        # Используется единица измерения 'metric' для получения температуры в градусах Цельсия
+        """
+        Получение погоды по почтовому индексу
+
+        :param zip_code: Почтовый индекс для запроса погоды
+        :return: Ответ API в формате JSON или None в случае ошибки
+        """
         params = {
             'zip': f"{zip_code},us",
             'appid': self.api_key,
             'units': 'metric',
         }
+        url = f"{self.base_url}"
         try:
-            # Отправка запроса к API
-            response = requests.get(self.base_url, params=params)
-            response.raise_for_status()  # Проверка на ошибки запроса
-            print(json.dumps(response.json(), indent=4, ensure_ascii=False))  # Вывод ответа API
+            Logger.add_request(url, params, headers=None, cookies=None, method='GET')  # Логирование запроса
+            response = requests.get(url, params=params)
+            response.raise_for_status()
+            Logger.add_response(response)  # Логирование ответа
+            print(json.dumps(response.json(), indent=4, ensure_ascii=False))
             return response.json()
         except requests.RequestException as e:
-            # Обработка возможных ошибок запроса
+            Logger.add_response(e.response) if e.response else Logger._write_log_to_file(f"Request failed: {e}\n")
             print(f"Error during API request: {e}")
             return None
