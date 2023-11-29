@@ -1,4 +1,4 @@
-# Project Instructions
+# Homework Project Instructions
 
 Dear candidate,
 
@@ -24,12 +24,15 @@ Please create tests that perform the following conversions:
 
 ### API Testing:
 
-Create an API test that retrieves the weather forecast for zip code **20852** in the USA.
+Before you start with API testing, please ensure the following steps are completed:
+- Register on [OpenWeatherMap](https://openweathermap.org/) to obtain your API key.
+- Create a `.env` file in your project root with the content `API_KEY=your_api_key_here`. This is required to securely access the OpenWeatherMap API without hardcoding your credentials in the codebase.
+
+**Note**: The steps above are for the second part of the homework assignment. I have not yet started working on the first part, which involves Selenium and browser-based tests.
+
+For the API testing part, create a test that retrieves the weather forecast for zip code **20852** in the USA:
 - **Get the weather**: Fetch the weather from [OpenWeatherMap](https://openweathermap.org/) for zip code 20852.
 - **Run the test**: Execute the test that retrieves the weather for this zip code.
-- **Verify the results**: Check that the results fall within a range of 10%.
+- **Verify the results**: Ensure that the results are within a 10% range of the expected outcome.
 
 Please include explanations of your design choices and demonstrate the use of OOP and design pattern principles in your solution.
-
-We look forward to reviewing your submission.
-
